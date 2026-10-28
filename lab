@@ -1,0 +1,116 @@
+1.  Create a Git Repository
+mkdir git-practical
+cd git-practical
+git init
+git status
+
+2: Create a File and Track Changes
+cd git-practical
+echo &quot;Welcome to Git and GitHub&quot; &gt; message.txt
+git status
+git add message.txt
+git status
+
+3: Commit Changes to the Repository
+cd git-practical
+echo &quot;First Git commit&quot; &gt; commit-demo.txt
+git add commit-demo.txt
+git commit -m &quot;Add first commit demo&quot;
+git log --oneline
+
+4: View Commit History
+cd git-practical
+git log
+git log --oneline
+
+5: Undo Changes Using Git Commands
+cd git-practical
+echo &quot;Original content&quot; &gt; undo-demo.txt
+git add undo-demo.txt
+git commit -m &quot;Add original content&quot;
+
+6: Create, Switch, and Delete a Branch
+cd git-practical
+git branch
+git branch feature-demo
+git switch feature-demo
+git branch
+git switch main
+git branch -d feature-demo
+git branch
+
+7: Resolve a Merge Conflict
+cd git-practical
+echo &quot;Welcome to Git&quot; &gt; conflict-demo.txt
+git add conflict-demo.txt
+git commit -m &quot;Add conflict demo file&quot;
+
+git switch -c feature-conflict
+echo &quot;Feature branch content&quot; &gt; conflict-demo.txt
+git add conflict-demo.txt
+git commit -m &quot;Update file in feature branch&quot;
+
+git switch main
+echo &quot;Main branch content&quot; &gt; conflict-demo.txt
+git add conflict-demo.txt
+git commit -m &quot;Update file in main branch&quot;
+
+
+git merge feature-conflict
+If a conflict occurs, edit conflict-demo.txt and remove the conflict markers (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======,
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;). Keep the content you want, then run:
+git add conflict-demo.txt
+git commit -m &quot;Resolve merge conflict&quot;
+cat conflict-demo.txt
+git status
+
+8: Store and Restore Changes Using Git Stash
+cd git-practical
+echo &quot;Original content&quot; &gt; notes.txt
+git add notes.txt
+git commit -m &quot;Add original notes&quot;
+
+echo &quot;Temporary work&quot; &gt;&gt; notes.txt
+git stash push -m &quot;Save temporary work&quot;
+git status
+git stash pop
+cat notes.txt
+
+9: Configure a Remote Repository
+cd /workspaces/git-practical
+git remote -v
+If origin is not configured, add it:
+git remote add origin https://github.com/anandajothi-2007/git-practical.git
+git remote -v
+If origin already exists, do not add it again.
+
+10: Clone, Push, and Pull Changes
+cd /workspaces
+git clone https://github.com/anandajothi-2007/git-practical.git
+cd git-practical
+echo &quot;Push and pull practical&quot; &gt; push-pull-demo.txt
+git add push-pull-demo.txt
+git commit -m &quot;Add push pull demo&quot;
+git push origin main
+git pull origin main
+cat push-pull-demo.txt
+
+11: Fork a Repository and Create a Pull Request
+git clone https://github.com/anandajothi-2007/Hello-World.git
+cd Hello-World
+git status
+
+12: Collaborative Editing with Multiple Contributors
+cd /workspaces/git-practical
+echo &quot;Collaborative editing practical - Exercise 12&quot; &gt; collaboration.txt
+git add collaboration.txt
+git commit -m &quot;Add collaborative editing exercise&quot;
+git push origin main
+After the collaborator commits and pushes their contribution, run:
+git pull origin main
+cat collaboration.txt
+git log --oneline -5
+
+13: Manage GitHub Issues and Project Boards
+echo &quot;Open the GitHub Issues page in your browser:&quot;
+echo &quot;https://github.com/anandajothi-2007/git-practical/issues&quot;
